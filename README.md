@@ -1,7 +1,19 @@
 # wordpress-4-test
 Test for back-end job
 
-##Login e senha
+#Setup Local Docker Environment
+## 1. Make sure you have Docker installed
+
+https://docs.docker.com/engine/installation/linux/
+## 2. Create the Docker container
+```bash
+$ docker-compose -f docker-compose.dev.yml up -d
+```
+## 3. Access the project
+
+On your browser, access http://localhost:8080
+
+##Login and password
 admin
 
 1^C%t*sDbfGqftNTC*
