@@ -1,0 +1,26 @@
+version: '2'
+services:
+  wordpress:
+    build: ./
+    ports:
+      - "8080:80"
+    environment:
+      WP_DB_NAME: testwp
+      WP_DB_HOST: database
+    volumes:
+      - "./www:/var/www/html"
+    networks:
+      - wordpress
+  database:
+    image: sameersbn/mysql
+    volumes:
+      - "./sql:/var/lib/mysql"
+      - "./replaceurls:/replaceurls"
+    environment:
+      DB_NAME: testwp
+      DB_USER: testwp
+      DB_PASS: testwp
+    networks:
+      - wordpress
+networks:
+  wordpress:
