@@ -1,6 +1,6 @@
 <?php
 /*
-	Template Name: Page - Festas
+	Template Name: Page - Festa
 */
 get_header(); ?>
 
@@ -8,17 +8,38 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
+			<h1>Listagem de Festas</h1>
+
+			<br clear="all" />
+
 			<?php
-			while ( have_posts() ) : the_post();
 
-				get_template_part( 'template-parts/page/content', 'page' );
+			$registros = ListaEventos();
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+			if(count($registros) > 0):
+			
+				foreach ($registros as $key => $registro):
 
-			endwhile; // End of the loop.
+					echo "<p><a href='" . $registro['url'] ."'><strong>" . $registro['titulo']. "</strong></a></p>";
+					$data = substr($registro['data_da_festa'], -2) . '/' . substr($registro['data_da_festa'], 4, -2) . '/' . substr($registro['data_da_festa'], 0, 4);
+
+					echo "<p><small> {$data} </small></p>";
+					echo "<p>" . $registro['descricao']. "</p>";
+
+					if(!empty($registro['imagem_de_destaque'])):
+	
+						echo "<p align='center'><a href='" . $registro['url'] ."'><img src='" . $registro['imagem_de_destaque']['sizes']['thumbnail'] ."' title='Imagem de Destaque' /></a></p>";
+
+					endif;
+
+				endforeach;
+
+			else:
+
+				echo "Sem festas cadastradas.";
+
+			endif;
+
 			?>
 
 		</main><!-- #main -->

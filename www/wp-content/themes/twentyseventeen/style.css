@@ -3114,6 +3114,13 @@ object {
 	width: auto;
 }
 
+/* Blaas */
+
+.voltar-festas{ padding: 15px 0; }
+.voltar-festas a{
+	text-decoration: underline;
+}
+
 /*--------------------------------------------------------------
 19.0 Media Queries
 --------------------------------------------------------------*/
@@ -4233,3 +4240,4 @@ object {
 		padding: 0;
 	}
 }
+	

@@ -24,7 +24,7 @@ get_header(); ?>
 		</header>
 	<?php else : ?>
 	<header class="page-header">
-		<h2 class="page-title"><?php _e( 'Posts', 'twentyseventeen' ); ?></h2>
+		<h2 class="page-title"><?php _e( 'Festas', 'twentyseventeen' ); ?></h2>
 	</header>
 	<?php endif; ?>
 
@@ -32,31 +32,33 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 			<?php
-			if ( have_posts() ) :
 
-				/* Start the Loop */
-				while ( have_posts() ) : the_post();
+			$registros = ListaEventos();
 
-					/*
-					 * Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'template-parts/post/content', get_post_format() );
+			if(count($registros) > 0):
+			
+				foreach ($registros as $key => $registro):
 
-				endwhile;
+					echo "<p><a href='" . $registro['url'] ."'><strong>" . $registro['titulo']. "</strong></a></p>";
+					$data = substr($registro['data_da_festa'], -2) . '/' . substr($registro['data_da_festa'], 4, -2) . '/' . substr($registro['data_da_festa'], 0, 4);
 
-				the_posts_pagination( array(
-					'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
-				) );
+					echo "<p><small> {$data} </small></p>";
+					echo "<p>" . $registro['descricao']. "</p>";
 
-			else :
+					if(!empty($registro['imagem_de_destaque'])):
+	
+						echo "<p><a href='" . $registro['url'] ."'><img src='" . $registro['imagem_de_destaque']['sizes']['thumbnail'] ."' title='Imagem de Destaque' /></a></p>";
 
-				get_template_part( 'template-parts/post/content', 'none' );
+					endif;
+
+				endforeach;
+
+			else:
+
+				echo "Sem festas cadastradas.";
 
 			endif;
+
 			?>
 
 		</main><!-- #main -->
