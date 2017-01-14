@@ -3,7 +3,7 @@
 class NewPostTypeController
 {
     /**
-     *
+     * Static function for initialize register post-type.
      */
     static function init()
     {
@@ -22,7 +22,7 @@ class NewPostTypeController
 
 
     /**
-     *
+     * Sets all the parameters for register the new post-type.
      */
     static function custom_post_type() {
 
@@ -61,7 +61,5 @@ class NewPostTypeController
         );
 
         register_post_type('festas', $args );
-
     }
-
 }

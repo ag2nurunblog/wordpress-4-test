@@ -18,6 +18,10 @@ admin
 
 1^C%t*sDbfGqftNTC*
 
+## 3. Database search replace URL
+I replaced http://wp-test.dev to http://localhost:8080
+URL: http://localhost:8080/search-replace
+
 ##O que fazer
 
 Criar um Post Type no Tema, Festas, contendo os seguintes itens:
@@ -27,7 +31,14 @@ Criar um Post Type no Tema, Festas, contendo os seguintes itens:
  - Imagem destaque da festa
  - 3 fotos da festa
 
+ ## Screenshot of admin screen:
+ ![alt tag](http://i.imgur.com/v5U9MbR.png)
+
+
 Gerar uma página contendo no minimo 2 posts do post type criado
+
+ ## Screenshot of post list screen:
+ ![alt tag](http://i.imgur.com/1G5cB69.png)
 
 Ao finalizar me enviar um merge request para avaliação.
 
