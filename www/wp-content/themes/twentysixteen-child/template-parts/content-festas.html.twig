@@ -1,0 +1,29 @@
+<article id="post-{{ id }}">
+    <table style="width:100%">
+        <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Data</th>
+            <th>Imagem Destaque</th>
+            <th>Fotos</th>
+        </tr>
+        <tr>
+            <td>{{ name }}</td>
+            <td>{{ description }}</td>
+            <td>{{ date }}</td>
+            <td><img src="{{ thumb[0] }}"></td>
+            <td>
+                {% for  image in images %}
+                    <img src="{{ image.imagem }}">
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Data</th>
+            <th>Imagem Destaque</th>
+            <th>Fotos</th>
+        </tr>
+    </table>
+</article>

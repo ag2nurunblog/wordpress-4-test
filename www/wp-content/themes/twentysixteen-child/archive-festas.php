@@ -19,7 +19,25 @@ get_header(); ?>
         <?php
             while (have_posts()) : the_post();
 
-                get_template_part('template-parts/content', 'festas');
+                $data        = Timber::get_context();
+                $name        = the_title('<h1 class="entry-title">', '</h1>', false);
+                $id          = the_ID();
+                $description = get_field('descricao', $id);
+                $date        = get_field('data-da-festa', $id);
+                $images      = get_field('imagens-festa', $id);
+                $thumb       = wp_get_attachment_image_src(get_post_thumbnail_id($id));
+
+                $data['description'] = isset($description) && strlen($description) ?  $description : 'Erro, sem descricao!';
+                $data['date']        = isset($date) ? $date : 'Erro, sem data!';
+                $data['images']      = isset($images) ? $images : 'Erro, sem imagens!';
+                $data['thumb']       = isset($thumb)  ?  $thumb : 'Erro, sem thumb!';
+                $data['name']        = isset($name) ? $name : 'Erro, sem nome da festa!';
+                $data['id']          = $id;
+
+                Timber::render(
+                    'template-parts/content-festas.html.twig',
+                    (array) $data
+                );
 
             endwhile;
         ?>
