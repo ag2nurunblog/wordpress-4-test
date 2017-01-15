@@ -1,10 +1,44 @@
+[Readme structure by: @rsilveira65](https://github.com/rsilveira65)
+
 # wordpress-4-test
+
 Test for back-end job
 
-##Login e senha
+##Deploy: [http://rsilveira.co/wordpress-test/festas](http://rsilveira.co/wordpress-test/festas/)
+
+[http://rsilveira.co/wordpress-test/wp-admin](http://rsilveira.co/wordpress-test/wp-admin)
+
+##Login and password
+
 admin
 
 1^C%t*sDbfGqftNTC*
+
+#Setup Local Docker Environment
+
+## 1. Make sure you have [Docker](https://docs.docker.com/engine/installation/linux/) installed
+
+## 2. Create the Docker container
+
+```bash
+$ docker-compose -f docker-compose.dev.yml up -d
+```
+
+## 3. Access the project
+
+On your browser, access http://localhost:8080
+
+##Login and password
+
+admin
+
+1^C%t*sDbfGqftNTC*
+
+## 3. Database search replace URL
+
+I replaced http://wp-test.dev to http://localhost:8080
+
+URL: http://localhost:8080/search-replace
 
 ##O que fazer
 
@@ -15,7 +49,14 @@ Criar um Post Type no Tema, Festas, contendo os seguintes itens:
  - Imagem destaque da festa
  - 3 fotos da festa
 
+## Screenshot of admin screen:
+ ![alt tag](http://i.imgur.com/v5U9MbR.png)
+
+
 Gerar uma página contendo no minimo 2 posts do post type criado
+
+## Screenshot of post list screen:
+ ![alt tag](http://i.imgur.com/1G5cB69.png)
 
 Ao finalizar me enviar um merge request para avaliação.
 
