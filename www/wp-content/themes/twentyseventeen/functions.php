@@ -1,4 +1,52 @@
 <?php
+
+add_action('init', 'type_post_festas');
+function type_post_festas() { 
+		$labels = array(
+			'name' => _x('Festas', 'post type general name'),
+			'singular_name' => _x('Festa', 'post type singular name'),
+			'add_new' => _x('Adicionar Novo', 'Nova Festa'),
+			'add_new_item' => __('Nova Festa'),
+			'edit_item' => __('Editar Festa'),
+			'new_item' => __('Nova Festa'),
+			'view_item' => __('Ver Festa'),
+			'search_items' => __('Procurar Festas'),
+			'not_found' =>  __('Nenhum registro encontrado'),
+			'not_found_in_trash' => __('Nenhum registro encontrado na lixeira'),
+			'parent_item_colon' => '',
+			'menu_name' => 'Festas',
+			'public' => true,
+			'has_archive' => true
+		);
+ 
+		$args = array(
+			'labels' => $labels,
+			'public' => true,
+			'public_queryable' => true,
+			'show_ui' => true,			
+			'query_var' => true,
+			'rewrite' => true,
+			'capability_type' => 'post',
+			'has_archive' => true,
+			'hierarchical' => false,
+			'menu_position' => 5 ,		
+			'supports' => array('title','editor','thumbnail','comments', 'excerpt', 'custom-fields', 'revisions', 'trackbacks')
+          );
+		register_post_type( 'festas' , $args );
+		flush_rewrite_rules();
+}
+
+register_taxonomy(
+	"festas_categorias", 
+	      "festas", 
+	      array(            
+	      	"label" => "Categorias", 
+	            "singular_label" => "Categoria", 
+	            "rewrite" => true,
+	            "hierarchical" => true
+	)
+);
+
 /**
  * Twenty Seventeen functions and definitions
  *
