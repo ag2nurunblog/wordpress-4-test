@@ -1,6 +1,9 @@
 # wordpress-4-test
 Test for back-end job
 
+##Informações
+Para criar os campos, foi utilizado o plugin Advanced Custom Fields. O banco de dados se encontra na pasta rais do wordpress, o banco está apotando para a pasta ag2, como também o wordpress está configurado para se conectar ao banco ag2.
+
 ##Login e senha
 admin
 
