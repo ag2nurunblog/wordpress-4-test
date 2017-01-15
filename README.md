@@ -4,9 +4,9 @@
 
 Test for back-end job
 
-##Deploy: http://rsilveira.co/wordpress-test/festas/
+##Deploy: [http://rsilveira.co/wordpress-test/festas](http://rsilveira.co/wordpress-test/festas/)
 
-http://rsilveira.co/wordpress-test/wp-admin
+[http://rsilveira.co/wordpress-test/wp-admin](http://rsilveira.co/wordpress-test/wp-admin)
 
 ##Login and password
 
@@ -16,9 +16,7 @@ admin
 
 #Setup Local Docker Environment
 
-## 1. Make sure you have Docker installed
-
-https://docs.docker.com/engine/installation/linux/
+## 1. Make sure you have [Docker](https://docs.docker.com/engine/installation/linux/) installed
 
 ## 2. Create the Docker container
 
@@ -51,13 +49,13 @@ Criar um Post Type no Tema, Festas, contendo os seguintes itens:
  - Imagem destaque da festa
  - 3 fotos da festa
 
- ## Screenshot of admin screen:
+## Screenshot of admin screen:
  ![alt tag](http://i.imgur.com/v5U9MbR.png)
 
 
 Gerar uma página contendo no minimo 2 posts do post type criado
 
- ## Screenshot of post list screen:
+## Screenshot of post list screen:
  ![alt tag](http://i.imgur.com/1G5cB69.png)
 
 Ao finalizar me enviar um merge request para avaliação.
