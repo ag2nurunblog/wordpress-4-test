@@ -14,7 +14,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-
+		// Mostra o titulo do post
 		<?php the_title( '<a href='.esc_url( get_permalink() ).'><h1 class="entry-title">', '<h1></a>' ); ?>
 	
 	</header><!-- .entry-header -->
