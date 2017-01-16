@@ -42,6 +42,7 @@
 				echo "<li><img src='".get_field('imagem_3')."' title='Imagem3' /></li>";
 			}
 			echo "</ul>";
+		        // Mostra a descrição do Post
 			if(get_field('descricao')){
 				echo "<p id='descricao'><br />".get_field('descricao')."<p/>";
 			}
