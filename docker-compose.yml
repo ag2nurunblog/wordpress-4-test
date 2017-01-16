@@ -1,0 +1,41 @@
+services:
+  web:
+    container_name: wordpress_web
+    depends_on:
+      - db
+    build: .
+    volumes:
+      - ./www:/var/www/html
+    ports:
+      - "8080:80"
+    restart: always
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.2
+    environment:
+      DB_HOST: wordpress_mysql
+      DB_NAME: testwp
+      DB_USERNAME: root
+      DB_PASSWORD: 123
+
+  db:
+    container_name: wordpress_mysql
+    image: mysql:5.7
+    volumes:
+      - ./sql:/sql
+    restart: always
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.3
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1
+
+version: '2'
